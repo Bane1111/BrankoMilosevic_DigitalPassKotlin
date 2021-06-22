@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Digital Pass</string>
+    <string name="create_account_label">Create Account</string>
+    <string name="passes_list_title_label">Passes</string>
+    <string name="update_credentials_label">Update credentials</string>
+    <string name="user_expiration_time_label">User expiration time:</string>
+    <string name="ready_expiration_time_label">Ready expiration time:</string>
+    <string name="unavailable_label">unavailable</string>
+    <string name="activate_user_credentials_btn_label">Get User Credentials</string>
+    <string name="activate_ready_credentials_btn_label">Get Ready Credentials</string>
+    <string name="ready_credential_updated">Ready credential updated</string>
+    <string name="unknown_credential_received">Unknown credential received</string>
+    <string name="user_credential_updated">User credential updated</string>
+    <string name="error_creating_credentials">Error creating credentials</string>
+    <string name="network_connection_issue">Network connection issue, please check your internet connection</string>
+    <string name="missing_data">Missing data</string>
+    <string name="error_receiving_data">Error receiving data</string>
+</resources>

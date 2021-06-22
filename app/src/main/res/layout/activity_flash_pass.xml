@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="pass"
+            type="com.daon.digitalpass.data.Pass" />
+        <variable
+            name="user"
+            type="com.daon.digitalpass.data.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        tools:context=".activities.FlashPassActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:background="@color/primary_color"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/flash_pass_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_30"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/background_user_container"
+            app:layout_constraintTop_toBottomOf="@+id/flash_pass_back_btn"
+            app:layout_constraintBottom_toTopOf="@+id/flash_pass_update_credentials_btn_container">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/flash_pass_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:setPassIcon="@{pass}"/>
+
+                <TextView
+                    android:id="@+id/flash_pass_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    style="@style/flashPassScreenTextStyle"
+                    app:layout_constraintBottom_toTopOf="@+id/flash_pass_description"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/flash_pass_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="AU Campus Access"
+                    app:setPassTitle="@{pass}"/>
+
+                <TextView
+                    android:id="@+id/flash_pass_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    style="@style/flashPassScreenTextStyle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/flash_pass_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/flash_pass_title"
+                    tools:text="Complete Health Questionnaire"
+                    app:setPassDescription="@{pass}"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/pass_invalid_border_color"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/flash_pass_user_data_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_margin="40dp"
+                android:background="@drawable/background_frame_pass_valid">
+
+                <ImageView
+                    android:id="@+id/flash_pass_validity_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:src="@drawable/ic_pass_valid"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/flash_pass_user_image"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:setUserImage="@{user}"/>
+
+                <TextView
+                    android:id="@+id/flash_pass_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    style="@style/flashPassScreenTextStyle"
+                    android:textSize="20sp"
+                    tools:text="Ben Coleman"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:setUserFullName="@{user}"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/pass_invalid_border_color"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/flash_pass_user_expiration_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/flashPassScreenTextStyle"
+                    android:text="@string/user_expiration_time_label"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/flash_pass_ready_expiration_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/flash_pass_user_expiration_timestamp" />
+
+                <TextView
+                    android:id="@+id/flash_pass_user_expiration_timestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/flashPassScreenTextStyle"
+                    android:textAlignment="textEnd"
+                    tools:text="19.07.2021 23:45"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/flash_pass_user_expiration_label"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/flash_pass_ready_expiration_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    style="@style/flashPassScreenTextStyle"
+                    android:text="@string/ready_expiration_time_label"
+                    app:layout_constraintTop_toBottomOf="@+id/flash_pass_user_expiration_label"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/flash_pass_ready_expiration_timestamp" />
+
+                <TextView
+                    android:id="@+id/flash_pass_ready_expiration_timestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    style="@style/flashPassScreenTextStyle"
+                    android:textAlignment="textEnd"
+                    tools:text="19.07.2021 23:45"
+                    app:layout_constraintTop_toBottomOf="@+id/flash_pass_user_expiration_timestamp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/flash_pass_ready_expiration_label"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/flash_pass_update_credentials_btn_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/btn_background_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                android:id="@+id/flash_pass_update_credentials_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="?attr/selectableItemBackground"
+                style="@style/flashPassScreenTextStyle"
+                android:textSize="18sp"
+                android:text="@string/update_credentials_label" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
